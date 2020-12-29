@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     mode: 'production',
     entry: './src/index.tsx',
+    devtool: 'inline-source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -20,7 +21,7 @@ module.exports = {
             {
                 test: /\.tsx$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,
+                exclude: /(node_modules)|(server)/,
             },
         ],
     },
